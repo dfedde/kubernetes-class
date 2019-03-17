@@ -1,0 +1,19 @@
+kubectl create -f ./my-pod-1.yml
+kubectl logs --follow my-pod # maybe not useful yet
+kubectl exec -it my-pod /bin/bash
+
+apt-get update
+apt-get install nginx curl
+service nginx start
+ps aux
+curl localhost
+exit
+
+kubectl port-forward my-pod 8080:80
+kubectl delete pod my-pod
+kubectl get all
+
+
+kubectl create -f ./my-pod-2.yml
+kubectl port-forward my-pod 8080:80
+curl localhost:8080
